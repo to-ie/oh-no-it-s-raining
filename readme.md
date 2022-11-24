@@ -19,7 +19,6 @@ Install requirements with
 pip install -r requirements.txt
 ```
 
-
 # Environment Variables
 To run this project, you will need to add the following environment variables to your .env file:
 
@@ -28,11 +27,6 @@ To run this project, you will need to add the following environment variables to
 - MAIL_USE_TLS
 - MAIL_USERNAME
 - MAIL_PASSWORD
-
-# Getting started
-## Prerequisites
-TBC
-
 
 # Notes
 ## To update the database
