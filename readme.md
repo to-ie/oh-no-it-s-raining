@@ -13,6 +13,12 @@ The aim of the project is for me to test my new-learnt Flask skills.
 - MySQL
 - Bootstrap
 
+# Requirements
+Install requirements with 
+```
+pip install -r requirements.txt
+```
+
 # Environment Variables
 To run this project, you will need to add the following environment variables to your .env file:
 
