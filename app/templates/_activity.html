@@ -1,0 +1,10 @@
+    <table class="activitytable">
+        <tr valign="top">
+            <td class="activityrow">
+                <div class="activitytitle">{{ activity.title }}</div> 
+                <div class= "activitylocation">📍 {{ activity.location }}</div>
+                <div class= "activitymore"><a href="{{ url_for('activitypage', activityid=activity.id) }}">More info</a></div>
+                
+            </td>
+        </tr>
+    </table>

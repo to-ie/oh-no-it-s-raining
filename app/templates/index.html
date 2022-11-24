@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>Oh no, it's raining!</h1>
+    <p class="sub">Find stuff to do, in Dublin, when the weather is poor.</p>
+    <div id="id7403ee3c06a84" a='{"t":"r","v":"1.2","lang":"en","locs":[2540],"ssot":"c","sics":"ds","cbkg":"#FFFFFF00","cfnt":"#000000","codd":"#FFFFFF00","cont":"#000000d4","etp":"bool","ewi":"bool","eln":"bool"}'>Weather Data Source: <a href="https://sharpweather.com/weather_dublin/">Dublin weather forecast</a></div><script async src="https://static1.sharpweather.com/widgetjs/?id=id7403ee3c06a84"></script>
+    
+    <div class="spacer"> </div>
+    <h2>Looks like rain,... Now what?</h2>
+    <p class="sub">Here are the latest suggestions posted by users.</p>
+    <div class="indexactivities">
+    {% for activity in activities %}
+            {% include '_activity.html' %}
+    {% endfor %}
+    </div>
+    <div class="spacer">  </div>
+    <h2>FAQ</h2>
+    <p class="sub">Answers to the most frequently asked questions.</p>
+    
+    <div class="faq-box">
+     <div class="faq">
+       <input type="checkbox" id="faq1">
+       <label class="faq-label" for="faq1">Whats is this all about?</label>
+       <div class="faq-content">
+         I recently went through this <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world" target="_blank">awesome tutorial</a> that outlines the basic concepts of Flask and I got excited. So, in order to put my newly-learnt skills to practice, I built this. <br>It is nothing fancy, but a good exercise.
+       </div>
+     </div>
+     <div class="faq">
+       <input type="checkbox" id="faq2">
+       <label class="faq-label" for="faq2">Is it free?</label>
+       <div class="faq-content">
+         Yup, 100%. Forever.
+       </div>
+     </div>
+     <div class="faq">
+       <input type="checkbox" id="faq3">
+       <label class="faq-label" for="faq3">Why Dublin? Any other cities?</label>
+       <div class="faq-content">
+         I had to start somewhere, so I chose Dublin. Depending on the traction, I might add other Irish cities.
+       </div>
+     </div>
+     <div class="faq">
+       <input type="checkbox" id="faq4">
+       <label class="faq-label" for="faq4">I have some questions...</label>
+       <div class="faq-content">
+         Sure, ping me on toie -at- duck -dot- com.
+       </div>
+     </div>
+   </div>
+{% endblock %}

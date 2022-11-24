@@ -1,0 +1,203 @@
+.navbar-brand{
+    margin-top: -5px !important;
+}
+
+.main{
+    min-height: calc(100vh - 175px) !important;
+}
+.spacer{
+    margin: 70px 0;
+}
+
+p{
+    font-size: 17px !important;
+}
+h1 {
+    font-size: 60px;
+    font-weight: 600 !important;
+    letter-spacing: -3px;
+    margin-top: 40px !important;
+}
+
+.sub{
+    font-size: 23px;
+    margin-bottom: 40px !important;
+
+    }
+
+h2{
+    letter-spacing: -1px;
+    font-weight: 600 !important;
+}
+
+/*weather forecast index page*/
+.wlr__fcTemp{
+    display: none !important;
+}
+
+#id7403ee3c06a84.wlr {
+  width: 700px !important;
+}
+
+/* Activity table */
+.indexactivities table{
+    width: 800px !important;
+    margin-bottom: -1px;
+}
+.activitytable th, td {
+    padding: 15px;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: #00000075;
+    border-collapse: collapse;
+}
+
+.activitytitle{
+    font-weight: 599 !important;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.activitylocation{
+    color: #707070;
+    flex: 1;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
+.activitymore{
+    background-color: #0d6efd;
+    padding: 10px 20px;
+    color: #FFF;
+    border-radius: 7px;
+}
+
+.activitymore a{
+    color: #FFF;
+}
+
+
+.activityrow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.editlinks{
+    font-size: 13px !important;
+    color: #33333350;
+    margin-top: 15px !important;
+    margin-bottom: -10px !important;
+}
+
+.editlinks a {
+    color: #33333350;
+}
+
+.editlinks a:hover{
+    color: #333333;
+}
+
+
+
+/* Pagination */
+.pager{
+    width: 800px !important;
+}
+
+.previous{
+    border-radius: 7px !important;
+}
+
+.next{
+    border-radius: 7px !important;
+}
+
+/* Footer */
+
+.footer{
+    background-color: #333;
+    padding: 15px 0 10px 0 !important;
+    color: #FFF;
+    width: 100%;
+    text-align: center;
+    margin: 60px 0 0px !important;
+    position: relative;
+    bottom: 0;
+
+}
+
+/* FAQ index */
+
+.faq {
+    color: #ffe3e3;
+    width: 800px !important;
+
+}
+
+.faq-label {
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    color: #333;
+    font-weight: 700;
+}
+
+
+.faq-label::after {
+    content: '\002B';
+    padding: 0.51rem;
+    text-align: center;
+}
+
+.faq-content {
+    color: #333333;
+    max-height: 0;
+    padding: 0 1em;
+    background: white;
+    transition: all 0.35s;
+    display: none;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    font-size: 17px;
+}
+
+.faq input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.faq input:checked + .faq-label {
+}
+.faq input:checked + .faq-label::after {
+    content: '\2013';
+}
+.faq input:checked ~ .faq-content {
+    max-height: 100vh;
+    padding: 1em;
+    display: block;
+}
+
+/* Activity page */
+
+.activitypage{
+    width: 800px;
+}
+
+.activitypagelocation{
+    color: #707070;
+    margin-right: 20px;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
+/* Alerts */
+.alert-info {
+    margin-left: -40px !important;
+}

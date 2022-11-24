@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>Edit Activity</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.activitytitle.label }}<br>
+            {{ form.activitytitle(size=50) }}<br>
+            {% for error in form.activitytitle.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+                <p>
+            {{ form.activitylocation.label }}<br>
+            {{ form.activitylocation(size=50) }}<br>
+            {% for error in form.activitylocation.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.activitybody.label }}<br>
+            {{ form.activitybody(cols=48, rows=8) }}<br>
+            {% for error in form.activitybody.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

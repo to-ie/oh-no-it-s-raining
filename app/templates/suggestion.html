@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>Suggest an activity</h1>
+    <p>Fill in the form below with your suggestion for an activity to do when it is raining. <br>This will be made visible to all the users of the site. </p>
+    <br>
+    <p>Don't forget to include any relevant information like links to the website, location, etc.</p>
+    <br>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.activitytitle.label }}<br>
+            {{ form.activitytitle(size=50) }}<br>
+            {% for error in form.activitytitle.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.activitybody.label }}<br>
+            {{ form.activitybody(cols=48, rows=8) }}<br>
+            {% for error in form.activitybody.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.activitylocation.label }}<br>
+            {{ form.activitylocation(size=50) }}<br>
+            {% for error in form.activitylocation.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
