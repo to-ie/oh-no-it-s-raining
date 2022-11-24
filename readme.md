@@ -19,14 +19,15 @@ Install requirements with
 pip install -r requirements.txt
 ```
 
+
 # Environment Variables
 To run this project, you will need to add the following environment variables to your .env file:
 
-MAIL_SERVER
-MAIL_PORT
-MAIL_USE_TLS
-MAIL_USERNAME
-MAIL_PASSWORD
+- MAIL_SERVER
+- MAIL_PORT
+- MAIL_USE_TLS
+- MAIL_USERNAME
+- MAIL_PASSWORD
 
 # Getting started
 ## Prerequisites
