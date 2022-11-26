@@ -330,11 +330,7 @@ def makeadmin(username):
         flash('This is a restricted area.')
         return redirect(url_for('index'))
 
-@app.route('/delete/<username>', methods=['GET', 'POST'])
-@login_required
-def deleteuser(username):
-
-    this is delicate. 
+    # this is delicate. 
     # We need to delete:
     # - users
     # - activities related to user 
@@ -342,32 +338,50 @@ def deleteuser(username):
     # - bookmarks made by other users on activities about to be deleted
     # we need to check that each of these exist otherwise the site crashes. 
     
+@app.route('/delete/<username>', methods=['GET', 'POST'])
+@login_required
+def deleteuser(username):
     form = EmptyForm()
     if current_user.admin == 1:
-        user_to_remove = User.query.filter_by(username = username).first()
-        if user_to_remove:
-            u = User.query.filter_by(username=username).first()
-            a = u.activity.all()
-            # This loop does not work
-            if a:
-                o = Activity.query.join(Bookmark, (Bookmark.activity_id == Activity.id))
-                for z in a:
-                    bookdel = o.filter(Bookmark.activity_id == z.id).first()
-                    if bookdel:
-                        db.session.delete(bookdel)
-                db.session.delete(a)
-            b = Bookmark.query.filter_by(user_id = u.id).all()
-            if b:
-                db.session.delete(b)
-            db.session.delete(u)
+        user = User.query.filter_by(username = username).first()
+        
+        if user:
+            # activities posted by user
+            activitites_user_delete = user.activity.all()
+            
+            # bookmarks by the user 
+            activities_bookmarked_user = Bookmark.query.filter_by(
+                user_id = user.id).all()
+
+            # delete bookmarked activities made by user by other  
+            if activitites_user_delete:
+                for a in activitites_user_delete:
+                    t = a.id
+                    o = Bookmark.query.filter_by(activity_id = t).first()
+                    if o:
+                        db.session.delete(o)
+            
+            # delete activities posted by user       
+            if activitites_user_delete:
+                for b in activitites_user_delete:
+                    db.session.delete(b)
+
+            # delete user's bookmarks
+            for c in activities_bookmarked_user:
+                db.session.delete(c)
+
+            db.session.delete(user)
             db.session.commit()
-            flash('This user has been deleted, along with their activities and bookmarks')
         else: 
             flash('This user does not exist.')
     else: 
         flash('This is a restricted area.')
         return redirect(url_for('index'))
     return redirect(url_for('adminusermanagement'))
+
+
+
+
 
 
 # Template for access to admin sections
