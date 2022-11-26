@@ -102,10 +102,16 @@ toie -at- duck -dot- com
 - [x] Form filling for activity does not take into account formatting  
 - [x] Activity page: description of the activity, along with all the relevant info (map, pricing, contact details, expiration)
 - [x] Style forms 
+- [ ] Admin user 
+    - [ ] for user management
+        - [ ] see and edit all users profiles
+        - [ ] make user admin
+        - [ ] delete user and attached posts (and bookmarked items by said user)
+    - [ ] For post management
+        - [ ] delete any post 
+        - [ ] edit any post 
 - [ ] Filters: to filter through the ideas, based on the location
-- [ ] Search by city
-- [ ] Admin for moderation of posts. 
-- [ ] Voting on activity (thumbs up and down)
+- [ ] [optional] Voting on activity (thumbs up and down)
 - [ ] Check email works 
 
 # Activate the environment
