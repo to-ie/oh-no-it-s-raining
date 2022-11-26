@@ -1,3 +1,95 @@
-2022-11-26 09:22:52,024 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
-2022-11-26 09:24:44,945 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
-2022-11-26 09:26:01,757 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:16:03,071 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:17:35,903 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:19:20,475 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:21:31,455 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:22:59,274 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:23:57,303 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:27:01,839 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:29:07,214 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:30:24,841 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:35:30,420 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:36:12,474 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:36:30,770 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:36:33,006 ERROR: Exception on /activity/21 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 157, in activitypage
+    return render_template('activity.html', id=activityid,
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/templates/activity.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/templates/base.html", line 68, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/templates/activity.html", line 12, in block 'app_content'
+    {% if bookmark_to_remove.id == activityid  %}
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'bookmark_to_remove' is undefined
+2022-11-26 12:37:31,210 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:37:54,084 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:38:25,019 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:39:44,929 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:40:31,566 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:40:32,978 ERROR: Exception on /activity/18 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 157, in activitypage
+    return render_template('activity.html', id=activityid,
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/home/theodore/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/templates/activity.html", line 12, in template
+    {% if bookmark="" %}
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of statement block', got '='
+2022-11-26 12:40:42,423 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:41:03,696 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:42:03,590 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:43:24,410 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:43:40,735 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 12:46:26,306 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]

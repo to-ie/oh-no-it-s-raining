@@ -1,116 +1,122 @@
-2022-11-25 21:44:50,923 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+2022-11-26 11:16:12,656 ERROR: Exception on /saved/bob [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
     rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 230, in saved
-    id = in_(bookmarkactivityid))
-         ^^^
-NameError: name 'in_' is not defined
-2022-11-25 21:45:07,396 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 21:45:07,877 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 256, in saved
+    Activity.id)).filter.filter(author=user).order_by(Activity.timestamp.desc())
+AttributeError: 'function' object has no attribute 'filter'
+2022-11-26 11:17:27,844 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:19:49,409 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:19:51,370 ERROR: Exception on /saved/bob [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: row value misused
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 523, in _literal_coercion
+    return expr._bind_param(operator, element, type_=bindparam_type)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 4731, in _bind_param
+    return BindParameter(
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 1562, in __init__
+    self.type = _compared_to_type.coerce_compared_value(
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/type_api.py", line 782, in coerce_compared_value
+    _coerced_type = _resolve_value_to_type(value)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/sqltypes.py", line 3362, in _resolve_value_to_type
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Object <User bob> is not legal as a SQL literal value
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
     rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 235, in saved
-    return render_template('saved_activities.html', user=user, activities=activities)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\templating.py", line 147, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\templating.py", line 130, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
-    self.environment.handle_exception()
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\saved_activities.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
-    {% block body -%}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
-    {% block content -%}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\base.html", line 61, in block 'content'
-    {% block app_content %}{% endblock %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\saved_activities.html", line 19, in block 'app_content'
-    {% for activity in activities %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2900, in __iter__
-    result = self._iter()
-             ^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
-    result = self.session.execute(
-             ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
-    return connection._execute_clauseelement(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
-    ret = self._execute_context(
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 256, in saved
+    Activity.id)).filter(Bookmark.user_id == user).order_by(Activity.timestamp.desc())
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/operators.py", line 373, in __eq__
+    return self.operate(eq, other)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/attributes.py", line 317, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/operators.py", line 373, in __eq__
+    return self.operate(eq, other)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/properties.py", line 423, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/annotation.py", line 225, in __eq__
+    return self.__element.__class__.__eq__(self, other)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/operators.py", line 373, in __eq__
+    return self.operate(eq, other)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 870, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/operators.py", line 373, in __eq__
+    return self.operate(eq, other)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/type_api.py", line 77, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/default_comparator.py", line 101, in _boolean_compare
+    obj = coercions.expect(
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 188, in expect
+    resolved = impl._literal_coercion(
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 525, in _literal_coercion
+    self._raise_for_expected(element, err=err)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 510, in _raise_for_expected
+    return super(ExpressionElementImpl, self)._raise_for_expected(
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/sql/coercions.py", line 283, in _raise_for_expected
+    util.raise_(exc.ArgumentError(msg, code=code), replace_context=err)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 210, in raise_
     raise exception
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) row value misused
-[SQL: SELECT activity.id AS activity_id, activity.title AS activity_title, activity.body AS activity_body, activity.location AS activity_location, activity.timestamp AS activity_timestamp, activity.user_id AS activity_user_id 
-FROM activity 
-WHERE ? = activity.user_id AND activity.id = (SELECT bookmark.id, bookmark.user_id, bookmark.activity_id 
-FROM bookmark 
-WHERE bookmark.user_id = ?)]
-[parameters: (1, 1)]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
+sqlalchemy.exc.ArgumentError: SQL expression element or literal value expected, got <User bob>.
+2022-11-26 11:20:05,329 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:26:25,660 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:27:17,945 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:28:34,811 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:30:34,114 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:31:03,982 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:31:24,959 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:31:57,884 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:37:25,157 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:37:33,014 ERROR: Exception on /removebookmark/22 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 230, in removebookmark
+    db.session.delete(addbookmark)
+NameError: name 'addbookmark' is not defined
+2022-11-26 11:38:27,449 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:38:40,506 ERROR: Exception on /removebookmark/22 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 229, in removebookmark
+    db.session.delete(removebookmark)
+  File "<string>", line 2, in delete
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2707, in delete
+    self._delete_impl(state, instance, head=True)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2713, in _delete_impl
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<Bookmark at 0x7fbd2f32ca00>' is not persisted

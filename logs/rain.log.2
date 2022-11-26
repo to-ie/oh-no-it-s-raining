@@ -1,82 +1,125 @@
-2022-11-25 22:14:35,094 ERROR: Exception on /user/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+2022-11-26 11:52:40,470 ERROR: Exception on /removebookmark/14 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
     rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 127, in user
-    return render_template('user.html', user=user, activities=activities.items,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\templating.py", line 146, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\user.html", line 18, in template
-    <a href="{{ url_for('posted/<username>', username=username=current_user.username) }}"> see now </a>
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got '='
-2022-11-25 22:15:23,194 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:16:28,401 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:17:57,076 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:18:42,221 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:19:18,659 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:22:21,783 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:23:07,971 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:23:49,217 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:26:14,300 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:26:22,338 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:28:20,963 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:28:50,171 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:29:43,348 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:30:05,380 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:30:31,687 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:33:50,325 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:33:52,551 ERROR: Exception on /user/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 228, in removebookmark
+    db.session.delete(b)
+  File "<string>", line 2, in delete
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2707, in delete
+    self._delete_impl(state, instance, head=True)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2713, in _delete_impl
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<Bookmark at 0x7faf895a6320>' is not persisted
+2022-11-26 11:53:57,074 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:54:02,278 ERROR: Exception on /removebookmark/14 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
     rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 120, in user
-    return render_template('user.html', user=user, next_url=next_url,
-                                                           ^^^^^^^^
-NameError: name 'next_url' is not defined
-2022-11-25 22:34:12,649 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 22:34:54,679 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 228, in removebookmark
+    db.session.delete(b)
+  File "<string>", line 2, in delete
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2707, in delete
+    self._delete_impl(state, instance, head=True)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2713, in _delete_impl
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<Bookmark at 0x7fd37cff9570>' is not persisted
+2022-11-26 11:54:43,246 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:54:45,715 ERROR: Exception on /removebookmark/14 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 228, in removebookmark
+    db.session.delete(b)
+  File "<string>", line 2, in delete
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2707, in delete
+    self._delete_impl(state, instance, head=True)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2713, in _delete_impl
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<Bookmark at 0x7f9814ded570>' is not persisted
+2022-11-26 11:56:05,871 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:56:07,794 ERROR: Exception on /removebookmark/14 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 228, in removebookmark
+    db.session.delete(b)
+  File "<string>", line 2, in delete
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2707, in delete
+    self._delete_impl(state, instance, head=True)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2713, in _delete_impl
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<Bookmark at 0x7f98cbcf5570>' is not persisted
+2022-11-26 11:58:21,870 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:58:25,864 ERROR: Exception on /removebookmark/14 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 228, in removebookmark
+    db.session.delete(b)
+  File "<string>", line 2, in delete
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2707, in delete
+    self._delete_impl(state, instance, head=True)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2713, in _delete_impl
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<Bookmark at 0x7f7a72dd1570>' is not persisted
+2022-11-26 11:59:16,222 INFO: Oh no it is raining [in /home/theodore/Documents/GitHub/oh-no-it-s-raining/app/__init__.py:51]
+2022-11-26 11:59:20,096 ERROR: Exception on /removebookmark/14 [GET] [in /home/theodore/.local/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/theodore/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/theodore/Documents/GitHub/oh-no-it-s-raining/app/routes.py", line 228, in removebookmark
+    db.session.delete(b)
+  File "<string>", line 2, in delete
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2707, in delete
+    self._delete_impl(state, instance, head=True)
+  File "/home/theodore/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2713, in _delete_impl
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<Bookmark at 0x7f033c1f9570>' is not persisted

@@ -68,7 +68,7 @@ class ActivityForm(FlaskForm):
     activitylocation = SelectField(u'Location', choices = [],
         validators = [DataRequired()])
     activitybody = TextAreaField('Describe the activity.', validators=[
-        DataRequired(), Length(min=1, max=1400)])
+        DataRequired(), Length(min=1, max=14000)])
     submit = SubmitField('Submit')
 
     # Call items for the drop-down from a database.
@@ -82,7 +82,7 @@ class EditActivityForm(FlaskForm):
         DataRequired(), Length(min=1, max=140)])
     activitylocation = SelectField(u'Location', choices = [],
         validators = [DataRequired()])
-    activitybody = TextAreaField('Describe the activity.', validators=[DataRequired(), Length(min=1, max=1400)])
+    activitybody = TextAreaField('Describe the activity.', validators=[DataRequired(), Length(min=1, max=14000)])
     submit = SubmitField('Submit')
 
     def __init__(self):

@@ -188,6 +188,10 @@ def delete_activity(activityid):
     currentactivity = Activity.query.filter_by(id=activityid).first_or_404()
     if current_user == currentactivity.author:
         db.session.delete(currentactivity)
+        # Delete any entries that are bookmarked by other users
+        bookmark_to_delete = Bookmark.query.filter_by(activity_id=activityid).all()
+        for b in bookmark_to_delete:
+            db.session.delete(b)
         db.session.commit()
         flash('Your activity was deleted.')
         return redirect(url_for('user', username=current_user.username))
@@ -198,20 +202,38 @@ def delete_activity(activityid):
 @app.route('/bookmark/<activityid>', methods=['GET', 'POST'])
 @login_required
 def bookmark(activityid):
+    # bookmark a specific activity and save it to the Bookmark table
     form = EmptyForm()
     bookmark = Bookmark.query.filter_by(user_id=current_user.id).filter_by(
         activity_id=activityid).first()
-
     if bookmark:
         flash('This activity is already saved in your profile.')
-        return redirect(url_for('activitypage', activityid = activityid)) 
     else: 
         addbookmark = Bookmark(user_id=current_user.id, activity_id=activityid)
         db.session.add(addbookmark)
         db.session.commit()
         flash('This activity is now saved in your profile.')
+    return redirect(url_for('activitypage', activityid = activityid, bookmark=bookmark))
 
-    return redirect(url_for('activitypage', activityid = activityid))
+
+@app.route('/removebookmark/<activityid>', methods=['GET', 'POST'])
+@login_required
+def removebookmark(activityid):
+    form = EmptyForm()
+    bookmark_to_remove = Bookmark.query.filter_by(user_id=current_user.id).filter_by(
+        activity_id=activityid).first()
+    if bookmark_to_remove:
+        b = Bookmark.query.filter_by(user_id=current_user.id).filter_by(
+            activity_id=activityid).first()
+        db.session.delete(b)
+        db.session.commit()
+        flash('This activity is now removed from your list.')
+    else: 
+        flash("This activity is not on your 'save for later' list and can't be removed.")
+    return redirect(url_for('activitypage', activityid = activityid, 
+        bookmark_to_remove=bookmark_to_remove))
+
+
 
 @app.route('/posted/<username>')
 @login_required
@@ -235,17 +257,22 @@ def posted(username):
 @login_required
 def saved(username):
     user = User.query.filter_by(username=username).first_or_404()
-    bookmarkactivityid = Bookmark.query.filter_by(user_id=user.id)
-    activities = Activity.query.filter_by(author=user).order_by(Activity.timestamp.desc())
-    # ---
-    # This one works
-    # activities = Activity.query.filter_by(author=user).order_by(Activity.timestamp.desc())
-    # ----
+    if current_user == user:
+        page = request.args.get('page', 1, type=int)
+        # this is cool, merging the two tables to find the relevant bookmarked 
+        # activities.
+        activities = Activity.query.join(Bookmark, (Bookmark.activity_id == 
+            Activity.id)).filter(Bookmark.user_id == user.id).order_by(Activity.timestamp.desc()).paginate(
+            page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+        next_url = url_for('saved', username=current_user.username, page=activities.next_num) \
+            if activities.has_next else None
+        prev_url = url_for('saved', username=current_user.username, page=activities.prev_num) \
+            if activities.has_prev else None        
+        return render_template('saved_activities.html', user=user, activities=activities.items,
+            next_url=next_url, prev_url=prev_url)
+    elif current_user != user:
+        flash("You can't access this page.")
+        return redirect(url_for('username', username=current_user.username))
+
     return render_template('saved_activities.html', user=user, activities=activities)
 
-
-
-
-## TODO
-## If not your user no access 
-## Pagination
