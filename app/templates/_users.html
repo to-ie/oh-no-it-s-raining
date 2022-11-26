@@ -5,6 +5,6 @@
         <td>{{ user.email }}</td>
         <td>{{ user.last_seen }}</td>
         <td>{{ user.admin }}</td>
-        <td class="align-right"><a class="nolinkdecorationimage" href="{{ url_for('edit_profile_admin', username=user.username) }}">✏️</a> | 🗑️</td>
+        <td class="align-right"><a class="nolinkdecorationimage" href="{{ url_for('edit_profile_admin', username=user.username) }}">✏️</a> | <a class="nolinkdecorationimage" href="{{ url_for('makeadmin', username=user.username) }}">👔</a> | 🗑️</td>
     </tr>
 

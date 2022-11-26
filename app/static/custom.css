@@ -49,7 +49,8 @@ h2{
 }
 
 .nolinkdecorationimage{
-    text-decoration: none;
+    text-decoration: none !important;
+
 }
 
 .align-right{

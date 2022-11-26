@@ -105,8 +105,8 @@ toie -at- duck -dot- com
 - [ ] Admin user 
     - [ ] for user management
         - [x] see all profiles
-        - [ ] edit all users profiles
-        - [ ] make user admin
+        - [x] edit all users profiles
+        - [x] make user admin
         - [ ] delete user and attached posts (and bookmarked items by said user)
     - [ ] For post management
         - [ ] delete any post 

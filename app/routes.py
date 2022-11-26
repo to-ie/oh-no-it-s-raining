@@ -149,33 +149,6 @@ def edit_profile():
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile', form=form)
 
-
-# editing here
-#
-#
-#
-@app.route('/edit_profile_admin/<username>', methods=['GET', 'POST'])
-@login_required
-def edit_profile_admin(username):
-    if current_user.admin == 1:
-        user = User.query.filter_by(username=username).first()
-        form = EditProfileAdminForm(user_username=user.username, user_email=user.email)
-        if form.validate_on_submit():
-            user.username = form.username.data
-            user.email = form.email.data
-            user.about_me = form.about_me.data
-            db.session.commit()
-            flash('Your changes have been saved.')
-            return redirect(url_for('user', username=user.username))
-        elif request.method == 'GET':
-            form.username.data = user.username
-            form.email.data = user.email
-            form.about_me.data = user.about_me
-        return render_template('edit_profile_admin.html', title='Edit Profile', username=username, form=form)
-    else:
-        flash('This is a restricted area.')
-        return redirect(url_for('index'))
-
 @app.route('/activity/<activityid>')
 @login_required
 def activitypage(activityid):
@@ -304,13 +277,58 @@ def saved(username):
 def adminusermanagement():
     if current_user.admin == 1:
         users = User.query.order_by(User.id.asc())
-
     else: 
         flash('This is a restricted area.')
         return redirect(url_for('index'))
     return render_template("user_management.html", title='User management', users=users)
 
+@app.route('/edit_profile_admin/<username>', methods=['GET', 'POST'])
+@login_required
+def edit_profile_admin(username):
+    if current_user.admin == 1:
+        user = User.query.filter_by(username=username).first()
+        form = EditProfileAdminForm(user_username=user.username, user_email=user.email)
+        if form.validate_on_submit():
+            user.username = form.username.data
+            user.email = form.email.data
+            user.about_me = form.about_me.data
+            db.session.commit()
+            flash('Your changes have been saved.')
+            return redirect(url_for('user', username=user.username))
+        elif request.method == 'GET':
+            form.username.data = user.username
+            form.email.data = user.email
+            form.about_me.data = user.about_me
+        return render_template('edit_profile_admin.html', title='Edit Profile', username=username, form=form)
+    else:
+        flash('This is a restricted area.')
+        return redirect(url_for('index'))
 
+@app.route('/makeadmin/<username>', methods=['GET', 'POST'])
+@login_required
+def makeadmin(username):
+    if current_user.admin == 1:
+        users = User.query.order_by(User.id.asc())
+        user = User.query.filter_by(username=username).first()
+        form = EmptyForm()
+        if username == current_user.username:
+            flash("You can't remove admin rights for your own user. What if you were the last admin?")
+            return redirect(url_for('adminusermanagement'))
+        else:
+            if user.admin == 1:
+                user.admin = 0
+                db.session.commit()
+                flash('Your changes have been saved: the user is no longer an admin.')
+                return redirect(url_for('adminusermanagement'))
+            else:
+                user.admin = 1
+                db.session.commit()
+                flash('Your changes have been saved: the user is now an admin.')
+                return redirect(url_for('adminusermanagement'))
+            return redirect(url_for('adminusermanagement'))
+    else: 
+        flash('This is a restricted area.')
+        return redirect(url_for('index'))
 
 
 # Template for access to admin sections
