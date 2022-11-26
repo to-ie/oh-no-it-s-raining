@@ -1,4 +1,4 @@
-2022-11-25 21:39:39,187 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+2022-11-25 21:40:13,677 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
 Traceback (most recent call last):
   File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
     self.dialect.do_execute(
@@ -89,7 +89,7 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) sub-select returns 3
 FROM activity 
 WHERE ? = activity.user_id AND activity.id = (activity.id IN (SELECT bookmark.id, bookmark.user_id, bookmark.activity_id 
 FROM bookmark 
-WHERE bookmark.user_id = ?)) ORDER BY activity.timestamp DESC]
+WHERE bookmark.user_id = ?))]
 [parameters: (1, 1)]
 (Background on this error at: https://sqlalche.me/e/14/e3q8)
-2022-11-25 21:40:13,010 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 21:41:02,915 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]

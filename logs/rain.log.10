@@ -1,12 +1,20 @@
-2022-11-25 21:28:32,039 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 21:29:12,818 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
-2022-11-25 21:29:15,024 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+2022-11-25 21:30:06,063 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
 Traceback (most recent call last):
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: row value misused
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 523, in _literal_coercion
+    return expr._bind_param(operator, element, type_=bindparam_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 4731, in _bind_param
+    return BindParameter(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 1562, in __init__
+    self.type = _compared_to_type.coerce_compared_value(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\type_api.py", line 782, in coerce_compared_value
+    _coerced_type = _resolve_value_to_type(value)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 3362, in _resolve_value_to_type
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Object 14 is not legal as a SQL literal value
 
 The above exception was the direct cause of the following exception:
 
@@ -26,72 +34,77 @@ Traceback (most recent call last):
   File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 238, in saved
-    return render_template('saved_activities.html', user=user, activities=activities)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\templating.py", line 147, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\templating.py", line 130, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
-    self.environment.handle_exception()
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\saved_activities.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
-    {% block body -%}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
-    {% block content -%}
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\base.html", line 61, in block 'content'
-    {% block app_content %}{% endblock %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\saved_activities.html", line 19, in block 'app_content'
-    {% for activity in activities %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2900, in __iter__
-    result = self._iter()
-             ^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
-    result = self.session.execute(
-             ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
-    return connection._execute_clauseelement(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
-    ret = self._execute_context(
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
-    util.raise_(
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 232, in saved
+    activities = Activity.query.filter_by(id=b)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 1806, in filter_by
+    clauses = [
+              ^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 1807, in <listcomp>
+    _entity_namespace_key(from_entity, key) == value
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\operators.py", line 373, in __eq__
+    return self.operate(eq, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\attributes.py", line 317, in operate
+    return op(self.comparator, *other, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\operators.py", line 373, in __eq__
+    return self.operate(eq, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\orm\properties.py", line 423, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\annotation.py", line 225, in __eq__
+    return self.__element.__class__.__eq__(self, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\operators.py", line 373, in __eq__
+    return self.operate(eq, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 870, in operate
+    return op(self.comparator, *other, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\operators.py", line 373, in __eq__
+    return self.operate(eq, other)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\type_api.py", line 77, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\default_comparator.py", line 101, in _boolean_compare
+    obj = coercions.expect(
+          ^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 188, in expect
+    resolved = impl._literal_coercion(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 525, in _literal_coercion
+    self._raise_for_expected(element, err=err)
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 510, in _raise_for_expected
+    return super(ExpressionElementImpl, self)._raise_for_expected(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\sql\coercions.py", line 283, in _raise_for_expected
+    util.raise_(exc.ArgumentError(msg, code=code), replace_context=err)
   File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
     raise exception
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) row value misused
-[SQL: SELECT activity.id AS activity_id, activity.title AS activity_title, activity.body AS activity_body, activity.location AS activity_location, activity.timestamp AS activity_timestamp, activity.user_id AS activity_user_id 
-FROM activity 
-WHERE ? = activity.user_id AND activity.id = (SELECT bookmark.id, bookmark.user_id, bookmark.activity_id 
-FROM bookmark 
-WHERE bookmark.user_id = ?) ORDER BY activity.timestamp DESC]
-[parameters: (1, 1)]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-2022-11-25 21:30:04,560 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+sqlalchemy.exc.ArgumentError: SQL expression element or literal value expected, got 14.
+2022-11-25 21:30:24,820 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 21:30:27,723 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 239, in saved
+    return render_template('saved_activities.html', user=user, activities=activities)
+                                                                          ^^^^^^^^^^
+NameError: name 'activities' is not defined
+2022-11-25 21:37:45,798 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]

@@ -1,19 +1,9 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h1>{{ user.username }}</h1>
-    {% if user.about_me %}
-    <p>{{ user.about_me }}</p>
-    {% endif %}
-    {% if user.last_seen %}
-    <span class="label label-default">Last seen {{ moment(user.last_seen).fromNow() }}.</span>
-    </p>{% endif %}
-    {% if user == current_user %}
-    <p class="editlinks"><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
-    {% endif %}
+    <h1>Your posted suggestions</h1>
+    <p>Here are the activities you have posted.</p>
     <div class="spacer"> </div>
-    
-    <h2>Suggestions you have posted</h2>
     <br>
     <div class="indexactivities">
     {% for activity in activities %}
