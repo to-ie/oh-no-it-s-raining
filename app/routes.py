@@ -330,6 +330,45 @@ def makeadmin(username):
         flash('This is a restricted area.')
         return redirect(url_for('index'))
 
+@app.route('/delete/<username>', methods=['GET', 'POST'])
+@login_required
+def deleteuser(username):
+
+    this is delicate. 
+    # We need to delete:
+    # - users
+    # - activities related to user 
+    # - bookmarks the user has made 
+    # - bookmarks made by other users on activities about to be deleted
+    # we need to check that each of these exist otherwise the site crashes. 
+    
+    form = EmptyForm()
+    if current_user.admin == 1:
+        user_to_remove = User.query.filter_by(username = username).first()
+        if user_to_remove:
+            u = User.query.filter_by(username=username).first()
+            a = u.activity.all()
+            # This loop does not work
+            if a:
+                o = Activity.query.join(Bookmark, (Bookmark.activity_id == Activity.id))
+                for z in a:
+                    bookdel = o.filter(Bookmark.activity_id == z.id).first()
+                    if bookdel:
+                        db.session.delete(bookdel)
+                db.session.delete(a)
+            b = Bookmark.query.filter_by(user_id = u.id).all()
+            if b:
+                db.session.delete(b)
+            db.session.delete(u)
+            db.session.commit()
+            flash('This user has been deleted, along with their activities and bookmarks')
+        else: 
+            flash('This user does not exist.')
+    else: 
+        flash('This is a restricted area.')
+        return redirect(url_for('index'))
+    return redirect(url_for('adminusermanagement'))
+
 
 # Template for access to admin sections
 # @app.route('/admin/users', methods=['GET', 'POST'])
