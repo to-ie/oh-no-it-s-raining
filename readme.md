@@ -98,8 +98,8 @@ toie -at- duck -dot- com
 - [x] Location should be a drop down 
 - [x] Redo location by using database table
 - [ ] Setup bookmarking system (save for later) // save for later working 
-        - [ ] display saved for later activities
-        - [ ] remove saved for later activities
+    - [ ] display saved for later activities
+    - [ ] remove saved for later activities
 - [ ] Filters: to filter through the ideas, based on the location
 - [x] Form filling for activity does not take into account formatting  
 - [ ] Mark activity as done
