@@ -44,6 +44,18 @@ h2{
     font-weight: 600 !important;
 }
 
+.nolinkdecoration{
+    color:#333 !important;
+}
+
+.nolinkdecorationimage{
+    text-decoration: none;
+}
+
+.align-right{
+    text-align: right !important;
+}
+
 .form-control{
     width: auto; !important;
     margin-bottom: -20px !important;

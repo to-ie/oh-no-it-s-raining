@@ -104,7 +104,8 @@ toie -at- duck -dot- com
 - [x] Style forms 
 - [ ] Admin user 
     - [ ] for user management
-        - [ ] see and edit all users profiles
+        - [x] see all profiles
+        - [ ] edit all users profiles
         - [ ] make user admin
         - [ ] delete user and attached posts (and bookmarked items by said user)
     - [ ] For post management

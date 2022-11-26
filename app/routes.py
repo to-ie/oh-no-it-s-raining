@@ -5,7 +5,7 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm, ActivityForm
 from app.models import User
 from datetime import datetime
-from app.forms import ActivityForm, EmptyForm
+from app.forms import ActivityForm, EmptyForm, EditProfileAdminForm
 from app.models import Activity, Area, Bookmark
 from app.forms import ResetPasswordRequestForm
 from app.email import send_password_reset_email
@@ -118,6 +118,8 @@ def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     if current_user == user:      
         return render_template('user.html', user=user)
+    elif current_user.admin == 1:
+        return render_template('user.html', user=user)
     elif current_user != user:
         flash("You can't access this page.")
         return redirect(url_for('user', username=current_user.username))
@@ -145,9 +147,34 @@ def edit_profile():
         form.username.data = current_user.username
         form.email.data = current_user.email
         form.about_me.data = current_user.about_me
-    activities = Activity.query.order_by(Activity.timestamp.desc()).all()
-    return render_template('edit_profile.html', title='Edit Profile', form=form,
-        activities=activities)
+    return render_template('edit_profile.html', title='Edit Profile', form=form)
+
+
+# editing here
+#
+#
+#
+@app.route('/edit_profile_admin/<username>', methods=['GET', 'POST'])
+@login_required
+def edit_profile_admin(username):
+    if current_user.admin == 1:
+        user = User.query.filter_by(username=username).first()
+        form = EditProfileAdminForm(user_username=user.username, user_email=user.email)
+        if form.validate_on_submit():
+            user.username = form.username.data
+            user.email = form.email.data
+            user.about_me = form.about_me.data
+            db.session.commit()
+            flash('Your changes have been saved.')
+            return redirect(url_for('user', username=user.username))
+        elif request.method == 'GET':
+            form.username.data = user.username
+            form.email.data = user.email
+            form.about_me.data = user.about_me
+        return render_template('edit_profile_admin.html', title='Edit Profile', username=username, form=form)
+    else:
+        flash('This is a restricted area.')
+        return redirect(url_for('index'))
 
 @app.route('/activity/<activityid>')
 @login_required
@@ -215,7 +242,6 @@ def bookmark(activityid):
         flash('This activity is now saved in your profile.')
     return redirect(url_for('activitypage', activityid = activityid, bookmark=bookmark))
 
-
 @app.route('/removebookmark/<activityid>', methods=['GET', 'POST'])
 @login_required
 def removebookmark(activityid):
@@ -232,8 +258,6 @@ def removebookmark(activityid):
         flash("This activity is not on your 'save for later' list and can't be removed.")
     return redirect(url_for('activitypage', activityid = activityid, 
         bookmark_to_remove=bookmark_to_remove))
-
-
 
 @app.route('/posted/<username>')
 @login_required
@@ -273,6 +297,28 @@ def saved(username):
     elif current_user != user:
         flash("You can't access this page.")
         return redirect(url_for('username', username=current_user.username))
-
     return render_template('saved_activities.html', user=user, activities=activities)
 
+@app.route('/admin/users', methods=['GET', 'POST'])
+@login_required
+def adminusermanagement():
+    if current_user.admin == 1:
+        users = User.query.order_by(User.id.asc())
+
+    else: 
+        flash('This is a restricted area.')
+        return redirect(url_for('index'))
+    return render_template("user_management.html", title='User management', users=users)
+
+
+
+
+# Template for access to admin sections
+# @app.route('/admin/users', methods=['GET', 'POST'])
+# @login_required
+# def adminusermanagement():
+#     if current_user.admin == 1:
+#     else: 
+#         flash('This is a restricted area.')
+#         return redirect(url_for('index'))
+#     return render_template('user_management.html')

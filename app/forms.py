@@ -52,6 +52,19 @@ class EditProfileForm(FlaskForm):
             if user is not None:
                 raise ValidationError('Please use a different email address, this one is already used.')
 
+#
+#   HERE
+#
+#
+
+class EditProfileAdminForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
+    submit = SubmitField('Submit')
+
+    # TODO : Add validation for email address and username
+
 class ResetPasswordRequestForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Request Password Reset')

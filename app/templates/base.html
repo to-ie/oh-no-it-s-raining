@@ -43,6 +43,10 @@
                         <li><a href="{{ url_for('user', username=current_user.username) }}">Your profile</a></li>
                         <li><a href="{{ url_for('saved', username=current_user.username) }}">Saved for later</a></li>
                         <li><a href="{{ url_for('posted', username=current_user.username) }}">Your suggestions</a></li>
+                        {% if current_user.admin == 1 %}
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ url_for('adminusermanagement') }}">User management</a></li>
+                        {% endif %}
                       </ul>
                     </li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
