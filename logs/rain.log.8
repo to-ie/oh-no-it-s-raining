@@ -1,0 +1,23 @@
+2022-11-25 21:37:49,047 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 230, in saved
+    activities = activitiesuser.filter_by(id = in_(bookmarkactivityid))
+                                               ^^^
+NameError: name 'in_' is not defined
+2022-11-25 21:39:03,684 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 21:39:37,673 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]

@@ -1,0 +1,110 @@
+2022-11-25 21:41:52,265 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 229, in saved
+    activities = Activity.query.filter_by(author=user).filter_by(id = activity_id.in_(bookmarkactivityid))
+                                                                      ^^^^^^^^^^^
+NameError: name 'activity_id' is not defined
+2022-11-25 21:43:17,814 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 21:43:21,313 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 229, in saved
+    activities = Activity.query.filter_by(author=user).filter_by(id = bookmarkactivityid.id.in_(bookmarkactivityid))
+                                                                      ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Query' object has no attribute 'id'
+2022-11-25 21:43:38,238 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 21:43:39,593 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 229, in saved
+    activities = Activity.query.filter_by(author=user).filter_by(id = id.in_(bookmarkactivityid))
+                                                                      ^^^^^^
+AttributeError: 'builtin_function_or_method' object has no attribute 'in_'
+2022-11-25 21:44:13,030 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 21:44:15,048 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 230, in saved
+    id = activity_id.in_(bookmarkactivityid))
+         ^^^^^^^^^^^
+NameError: name 'activity_id' is not defined
+2022-11-25 21:44:36,253 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 21:44:37,064 ERROR: Exception on /saved/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 230, in saved
+    id = bookmark.activity_id.in_(bookmarkactivityid))
+         ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'activity_id'
+2022-11-25 21:44:49,334 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]

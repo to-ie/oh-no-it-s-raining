@@ -6,7 +6,7 @@ from app.forms import LoginForm, RegistrationForm, ActivityForm
 from app.models import User
 from datetime import datetime
 from app.forms import ActivityForm, EmptyForm
-from app.models import Activity
+from app.models import Activity, Area, Bookmark
 from app.forms import ResetPasswordRequestForm
 from app.email import send_password_reset_email
 from app.forms import ResetPasswordForm
@@ -68,7 +68,6 @@ def member():
     return render_template("member.html", title='Explore', activities=activities.items,
                           next_url=next_url, prev_url=prev_url)
 
-
 @app.route('/suggest', methods=['GET', 'POST'])
 @login_required
 def suggest():
@@ -117,16 +116,8 @@ def reset_password(token):
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    if current_user == user:
-        page = request.args.get('page', 1, type=int)
-        activities = Activity.query.filter_by(author=user).order_by(Activity.timestamp.desc()).paginate(
-            page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-        next_url = url_for('user', username=current_user.username, page=activities.next_num) \
-            if activities.has_next else None
-        prev_url = url_for('user', username=current_user.username, page=activities.prev_num) \
-            if activities.has_prev else None        
-        return render_template('user.html', user=user, activities=activities.items,
-            next_url=next_url, prev_url=prev_url)
+    if current_user == user:      
+        return render_template('user.html', user=user)
     elif current_user != user:
         flash("You can't access this page.")
         return redirect(url_for('user', username=current_user.username))
@@ -149,7 +140,7 @@ def edit_profile():
         current_user.about_me = form.about_me.data
         db.session.commit()
         flash('Your changes have been saved.')
-        return redirect(url_for('edit_profile'))
+        return redirect(url_for('user', username=current_user.username))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
@@ -202,4 +193,59 @@ def delete_activity(activityid):
         return redirect(url_for('user', username=current_user.username))
     elif current_user != currentactivity.author:
         flash("You can't delete this activity as you did not create it.")
-        return redirect(url_for('user', username=current_user.username))
+        return redirect(url_for('posted', username=current_user.username))
+
+@app.route('/bookmark/<activityid>', methods=['GET', 'POST'])
+@login_required
+def bookmark(activityid):
+    form = EmptyForm()
+    bookmark = Bookmark.query.filter_by(user_id=current_user.id).filter_by(
+        activity_id=activityid).first()
+
+    if bookmark:
+        flash('This activity is already saved in your profile.')
+        return redirect(url_for('activitypage', activityid = activityid)) 
+    else: 
+        addbookmark = Bookmark(user_id=current_user.id, activity_id=activityid)
+        db.session.add(addbookmark)
+        db.session.commit()
+        flash('This activity is now saved in your profile.')
+
+    return redirect(url_for('activitypage', activityid = activityid))
+
+@app.route('/posted/<username>')
+@login_required
+def posted(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    if current_user == user:
+        page = request.args.get('page', 1, type=int)
+        activities = Activity.query.filter_by(author=user).order_by(Activity.timestamp.desc()).paginate(
+            page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+        next_url = url_for('posted', username=current_user.username, page=activities.next_num) \
+            if activities.has_next else None
+        prev_url = url_for('posted', username=current_user.username, page=activities.prev_num) \
+            if activities.has_prev else None        
+        return render_template('posted_activities.html', user=user, activities=activities.items,
+            next_url=next_url, prev_url=prev_url)
+    elif current_user != user:
+        flash("You can't access this page.")
+        return redirect(url_for('posted', username=current_user.username))
+
+@app.route('/saved/<username>')
+@login_required
+def saved(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    bookmarkactivityid = Bookmark.query.filter_by(user_id=user.id)
+    activities = Activity.query.filter_by(author=user).order_by(Activity.timestamp.desc())
+    # ---
+    # This one works
+    # activities = Activity.query.filter_by(author=user).order_by(Activity.timestamp.desc())
+    # ----
+    return render_template('saved_activities.html', user=user, activities=activities)
+
+
+
+
+## TODO
+## If not your user no access 
+## Pagination

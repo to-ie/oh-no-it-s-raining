@@ -9,6 +9,15 @@
     margin: 70px 0;
 }
 
+.alert-info {
+    margin-left: -40px !important;
+}
+
+.suggestion-alert{
+    margin-left: 0px !important;
+    width: 800px;
+}
+
 p{
     font-size: 17px !important;
 }
@@ -17,6 +26,11 @@ h1 {
     font-weight: 600 !important;
     letter-spacing: -3px;
     margin-top: 40px !important;
+}
+
+ul{
+    font-size: 17px;
+
 }
 
 .sub{
@@ -30,6 +44,18 @@ h2{
     font-weight: 600 !important;
 }
 
+.form-control{
+    width: auto; !important;
+    margin-bottom: -20px !important;
+}
+
+.checkbox-inline{
+    margin-top: -1px !important;
+}
+
+.backlink{
+    margin-left: 15px;
+}
 /*weather forecast index page*/
 .wlr__fcTemp{
     display: none !important;
@@ -56,6 +82,10 @@ h2{
     font-weight: 599 !important;
     margin-top: 10px;
     font-size: 16px;
+}
+
+.activitytitle a{
+    color: #333;
 }
 
 .activitylocation{
@@ -88,7 +118,6 @@ h2{
     font-size: 13px !important;
     color: #33333350;
     margin-top: 15px !important;
-    margin-bottom: -10px !important;
 }
 
 .editlinks a {
@@ -99,8 +128,14 @@ h2{
     color: #333333;
 }
 
+.activitybody{
+    white-space: break-spaces;
+}
 
-
+.saveforlater{
+    font-size: 13px !important;
+    text-align: right;
+}
 /* Pagination */
 .pager{
     width: 800px !important;
@@ -127,63 +162,14 @@ h2{
     bottom: 0;
 
 }
-
-/* FAQ index */
-
-.faq {
-    color: #ffe3e3;
-    width: 800px !important;
-
+/* FAQ */
+#accordion{
+    width: 800px;
 }
 
-.faq-label {
-    font-size: 17px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-    color: #333;
-    font-weight: 700;
+.panel-heading{
+    padding: 15px !important;
 }
-
-
-.faq-label::after {
-    content: '\002B';
-    padding: 0.51rem;
-    text-align: center;
-}
-
-.faq-content {
-    color: #333333;
-    max-height: 0;
-    padding: 0 1em;
-    background: white;
-    transition: all 0.35s;
-    display: none;
-    padding-left: 15px;
-    margin-bottom: 25px;
-    font-size: 17px;
-}
-
-.faq input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-}
-
-.faq input:checked + .faq-label {
-}
-.faq input:checked + .faq-label::after {
-    content: '\2013';
-}
-.faq input:checked ~ .faq-content {
-    max-height: 100vh;
-    padding: 1em;
-    display: block;
-}
-
 /* Activity page */
 
 .activitypage{
@@ -197,7 +183,3 @@ h2{
     text-transform: capitalize;
 }
 
-/* Alerts */
-.alert-info {
-    margin-left: -40px !important;
-}

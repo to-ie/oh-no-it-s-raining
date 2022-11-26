@@ -2,33 +2,36 @@
 
 {% block app_content %}
     <h1>Suggest an activity</h1>
-    <p>Fill in the form below with your suggestion for an activity to do when it is raining. <br>This will be made visible to all the users of the site. </p>
-    <br>
-    <p>Don't forget to include any relevant information like links to the website, location, etc.</p>
+    <p>Fill in the form below with your suggestion for an activity to do when it is raining.<br>Don't forget to include any relevant information, such as exact location, opening hours, links to the website, price, etc. </p>
+    <div class="alert alert-info suggestion-alert" role="alert">
+        <p>&#9432; We have kept the formatting to the minimum: no bold, italics,
+        html... We like to keep things simple. Put a <b>#</b> in front of titles and use 
+        spacing intelligently. </p> 
+    </div>
     <br>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
             {{ form.activitytitle.label }}<br>
-            {{ form.activitytitle(size=50) }}<br>
+            {{ form.activitytitle(size=75, class_='form-control') }}<br>
             {% for error in form.activitytitle.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
             {{ form.activitybody.label }}<br>
-            {{ form.activitybody(cols=48, rows=8) }}<br>
+            {{ form.activitybody(cols=72, rows=8, class_='form-control') }}<br>
             {% for error in form.activitybody.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
             {{ form.activitylocation.label }}<br>
-            {{ form.activitylocation(size=50) }}<br>
+            {{ form.activitylocation(class_='form-control') }}<br>
             {% for error in form.activitylocation.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.submit() }}</p>
+        <p>{{ form.submit(class_='btn btn-primary') }}</p>
     </form>
 {% endblock %}

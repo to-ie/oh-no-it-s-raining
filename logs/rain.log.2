@@ -1,0 +1,106 @@
+2022-11-25 22:08:49,552 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 22:09:05,680 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 22:13:40,272 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 22:13:54,897 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 22:14:00,101 ERROR: Exception on /user/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 127, in user
+    return render_template('user.html', user=user, activities=activities.items,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\base.html", line 61, in block 'content'
+    {% block app_content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\user.html", line 18, in block 'app_content'
+    <a href="{{ url_for('posted/<username>', username=username) }}"> see now </a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2031, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2020, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\werkzeug\routing\map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'posted/<username>' with values ['username']. Did you mean 'posted' instead?
+2022-11-25 22:14:30,343 INFO: Oh no it is raining [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\__init__.py:51]
+2022-11-25 22:14:31,916 ERROR: Exception on /user/Theo [GET] [in C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\routes.py", line 127, in user
+    return render_template('user.html', user=user, activities=activities.items,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\flask\templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\TheodoreKallergis\OneDrive - ABtrace\Documents\Github\oh-no-it-s-raining\app\templates\user.html", line 18, in template
+    <a href="{{ url_for('posted/<username>', username=username=current_user.username) }}"> see now </a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got '='

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>{{ user.username }}</h1>
+    {% if user.about_me %}
+    <p>{{ user.about_me }}</p>
+    {% endif %}
+    {% if user.last_seen %}
+    <span class="label label-default">Last seen {{ moment(user.last_seen).fromNow() }}.</span>
+    </p>{% endif %}
+    {% if user == current_user %}
+    <p class="editlinks"><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+    {% endif %}
+    <div class="spacer"> </div>
+    
+    <h2>Suggestions you have posted</h2>
+    <br>
+    <div class="indexactivities">
+    {% for activity in activities %}
+        {% include '_activity.html' %}
+    {% endfor %}
+    </div>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> Newer
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a href="{{ next_url or '#' }}">
+                    Older <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}

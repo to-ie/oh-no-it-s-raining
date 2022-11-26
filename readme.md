@@ -94,12 +94,25 @@ toie -at- duck -dot- com
 
 
 # Roadmap
-- [ ] check email works 
-- [ ] setup bookmarking system
-- [ ] admin for moderation of posts. 
-- [ ] form filling for activity does not take into account the <br> 
-- [ ] location should be a drop down
-- [ ] anonymize config
+- [x] anonymize config for GitHub
+- [x] Location should be a drop down 
+- [x] Redo location by using database table
+- [ ] Setup bookmarking system (save for later)
+        save for later working 
+        still remaining:
+                - issue with the saved for later saving duplicates
+                - display saved for later activities
+                - remove saved for later activities
+- [ ] Filters: to filter through the ideas, based on the location
+- [x] Form filling for activity does not take into account formatting  
+- [ ] Mark activity as done
+- [ ] Admin for moderation of posts. 
+- [ ] Activity page: description of the activity, along with all the relevant info (map, pricing, contact details, expiration)
+- [ ] Voting on activity (thumbs up and down)
+- [x] Weather forecast: simple 7 day forecast
+- [ ] Search by city
+- [ ] Check email works 
+- [x] Style forms 
 
 # Activate the environment
 - On Windows: venv\Scripts\activate

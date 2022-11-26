@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
-from app.models import User
-from wtforms import StringField, TextAreaField, SubmitField
+from app.models import User, Area
+from wtforms import StringField, TextAreaField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length
 
 class LoginForm(FlaskForm):
@@ -65,20 +65,31 @@ class ResetPasswordForm(FlaskForm):
 class ActivityForm(FlaskForm):
     activitytitle = StringField('Activity title', validators=[
         DataRequired(), Length(min=1, max=140)])
-    activitylocation = StringField('Location', validators=[
-        DataRequired(), Length(min=1, max=140)])
+    activitylocation = SelectField(u'Location', choices = [],
+        validators = [DataRequired()])
     activitybody = TextAreaField('Describe the activity.', validators=[
         DataRequired(), Length(min=1, max=1400)])
     submit = SubmitField('Submit')
 
+    # Call items for the drop-down from a database.
+    def __init__(self):
+        super(ActivityForm, self).__init__()
+        self.activitylocation.choices = Area.query.all()
+        # self.activitylocation.choices = Area.query.filter_by(city='Dublin').all()
+
 class EditActivityForm(FlaskForm):
     activitytitle = StringField('Activity title', validators=[
         DataRequired(), Length(min=1, max=140)])
-    activitylocation = StringField('Location', validators=[
-        DataRequired(), Length(min=1, max=140)])
-    activitybody = TextAreaField('Describe the activity.', validators=[
-        DataRequired(), Length(min=1, max=1400)])
+    activitylocation = SelectField(u'Location', choices = [],
+        validators = [DataRequired()])
+    activitybody = TextAreaField('Describe the activity.', validators=[DataRequired(), Length(min=1, max=1400)])
     submit = SubmitField('Submit')
+
+    def __init__(self):
+        super(EditActivityForm, self).__init__()
+        # self.activitylocation.choices = Area.query.filter_by(city='Dublin').all()
+        self.activitylocation.choices = Area.query.all()
+
     
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')

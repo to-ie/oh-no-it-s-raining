@@ -30,7 +30,7 @@ class User(UserMixin, db.Model):
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
-            app.config['SECRET_KEY'], algorithm='HS256')
+            app.config['SECRET_KEY'], algorithm='HS256') 
 
     @staticmethod
     def verify_reset_password_token(token):
@@ -52,6 +52,25 @@ class Activity(db.Model):
     def __repr__(self):
         return '<Activity {}>'.format(self.body)
 
+class Area(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    city = db.Column(db.String(140))
+    area = db.Column(db.String(140))
+
+    def __repr__(self):
+        return '{}'.format(self.area)
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+class Bookmark(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    activity_id = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '{}'.format(self.activity_id)
+
+
+
