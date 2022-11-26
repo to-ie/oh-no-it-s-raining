@@ -95,21 +95,18 @@ toie -at- duck -dot- com
 
 # Roadmap
 - [x] anonymize config for GitHub
+- [x] Weather forecast: simple 7 day forecast
 - [x] Location should be a drop down 
 - [x] Redo location by using database table
-- [ ] Setup bookmarking system (save for later) // save for later working 
-    - [ ] display saved for later activities
-    - [ ] remove saved for later activities
-- [ ] Filters: to filter through the ideas, based on the location
+- [x] Setup bookmarking system (save for later) // save for later working 
 - [x] Form filling for activity does not take into account formatting  
-- [ ] Mark activity as done
-- [ ] Admin for moderation of posts. 
-- [ ] Activity page: description of the activity, along with all the relevant info (map, pricing, contact details, expiration)
-- [ ] Voting on activity (thumbs up and down)
-- [x] Weather forecast: simple 7 day forecast
-- [ ] Search by city
-- [ ] Check email works 
+- [x] Activity page: description of the activity, along with all the relevant info (map, pricing, contact details, expiration)
 - [x] Style forms 
+- [ ] Filters: to filter through the ideas, based on the location
+- [ ] Search by city
+- [ ] Admin for moderation of posts. 
+- [ ] Voting on activity (thumbs up and down)
+- [ ] Check email works 
 
 # Activate the environment
 - On Windows: venv\Scripts\activate
