@@ -15,7 +15,9 @@
 
 .suggestion-alert{
     margin-left: 0px !important;
-    width: 800px;
+    width: 670px;
+/*    width: 100% !important;*/
+
 }
 
 p{
@@ -80,7 +82,8 @@ h2{
 
 /* Activity table */
 .indexactivities table{
-    width: 800px !important;
+/*    width: 800px !important;*/
+    width: 100% !important;
     margin-bottom: -1px;
 }
 .activitytable th, td {
@@ -151,7 +154,9 @@ h2{
 }
 /* Pagination */
 .pager{
-    width: 800px !important;
+/*    width: 800px !important;*/
+    width: 100%;
+
 }
 
 .previous{
@@ -177,7 +182,7 @@ h2{
 }
 /* FAQ */
 #accordion{
-    width: 800px;
+/*    width: 800px;*/
 }
 
 .panel-heading{
@@ -186,7 +191,8 @@ h2{
 /* Activity page */
 
 .activitypage{
-    width: 800px;
+/*    width: 800px;*/
+    width: 100%;
 }
 
 .activitypagelocation{

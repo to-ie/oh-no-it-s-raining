@@ -4,6 +4,9 @@
 <div class="activitypage">
     <h1>{{ activitypage.title }}</h1>
     <p class="activitypagelocation">📍 {{ activitypage.location }}</p>
+    {% if current_user.admin == 1 %}
+        <p class="editlinks"><a href="{{ url_for('edit_activity', activityid=id) }}">Edit activity</a> | <a href="{{ url_for('delete_activity', activityid=id) }}">Delete activity</a></p>
+    {% endif %}
     {% if current_user.id == activitypage.user_id %}
         <p class="editlinks"><a href="{{ url_for('edit_activity', activityid=id) }}">Edit activity</a> | <a href="{{ url_for('delete_activity', activityid=id) }}">Delete activity</a></p>
     {% endif %}

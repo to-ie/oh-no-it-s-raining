@@ -108,10 +108,10 @@ toie -at- duck -dot- com
         - [x] edit all users profiles
         - [x] make user admin
         - [x] delete user and attached posts (and bookmarked items by said user)
-    - [ ] For post management
-        - [ ] delete any post 
-        - [ ] edit any post 
-- [ ] moderation of posts before they go live
+    - [x] For post management
+        - [x] edit any activity 
+        - [x] delete any activity 
+    - [ ] moderation of posts before they go live
 - [ ] Filters: to filter through the ideas, based on the location
 - [ ] [optional] Voting on activity (thumbs up and down)
 - [ ] Check email works 

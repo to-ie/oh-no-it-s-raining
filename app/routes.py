@@ -164,7 +164,7 @@ from app.forms import EditActivityForm
 def edit_activity(activityid):
     form = EditActivityForm()
     currentactivity = Activity.query.filter_by(id=activityid).first_or_404()
-    if current_user == currentactivity.author:
+    if current_user == currentactivity.author or current_user.admin == 1:
         if form.validate_on_submit():
             currentactivity.title = form.activitytitle.data
             currentactivity.location = form.activitylocation.data
@@ -186,7 +186,7 @@ def edit_activity(activityid):
 @login_required
 def delete_activity(activityid):
     currentactivity = Activity.query.filter_by(id=activityid).first_or_404()
-    if current_user == currentactivity.author:
+    if current_user == currentactivity.author or current_user.admin == 1:
         db.session.delete(currentactivity)
         # Delete any entries that are bookmarked by other users
         bookmark_to_delete = Bookmark.query.filter_by(activity_id=activityid).all()
@@ -378,6 +378,19 @@ def deleteuser(username):
         flash('This is a restricted area.')
         return redirect(url_for('index'))
     return redirect(url_for('adminusermanagement'))
+
+@app.route('/admin/activities')
+@login_required
+def edit_activities_admin():
+    page = request.args.get('page', 1, type=int)
+    activities = Activity.query.order_by(Activity.timestamp.desc()).paginate(
+        page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+    next_url = url_for('member', page=activities.next_num) \
+        if activities.has_next else None
+    prev_url = url_for('member', page=activities.prev_num) \
+        if activities.has_prev else None
+    return render_template("activity_management.html", title='Explore', activities=activities.items,
+                          next_url=next_url, prev_url=prev_url)
 
 
 
