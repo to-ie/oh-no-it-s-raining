@@ -49,6 +49,7 @@ class Activity(db.Model):
     location = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    moderation = db.Column(db.Integer, default=1)
 
     def __repr__(self):
         return '<Activity {}>'.format(self.body)

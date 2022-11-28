@@ -1,9 +1,14 @@
     <table class="activitytable">
         <tr valign="top">
             <td class="activityrow">
-                <div class="activitytitle"><a href="{{ url_for('activitypage', activityid=activity.id) }}">{{ activity.title }}</a></div> 
+                <div class="activitytitle"><a href="{{ url_for('activitypage', 
+                    activityid=activity.id) }}">{{ activity.title }}</a> &ensp;
+                {% if activity.moderation == 1 %}
+                    <span class="label label-info">Pending moderation</span>
+                {% endif %}</div> 
                 <div class= "activitylocation">📍 {{ activity.location }}</div>
-                <div class= "activitymore"><a href="{{ url_for('activitypage', activityid=activity.id) }}">More info</a></div>
+                <div class= "activitymore"><a href="{{ url_for('activitypage', 
+                    activityid=activity.id) }}">More info</a></div>
             </td>
         </tr>
     </table>

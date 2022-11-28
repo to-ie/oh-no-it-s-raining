@@ -15,8 +15,9 @@ from app.forms import ResetPasswordForm
 @app.route('/index')
 def index():
     page = request.args.get('page', 1, type=int)
-    activities = Activity.query.order_by(Activity.timestamp.desc()).paginate(
-        page=page, per_page=5, error_out=False)
+    activities = Activity.query.filter_by(moderation = "0").order_by(
+        Activity.timestamp.desc()).paginate(page=page, per_page=5, 
+        error_out=False)
     return render_template('index.html', title='Home', activities=activities)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -27,7 +28,8 @@ def login():
         return redirect(url_for('member'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(usernamelowercase=form.username.data.lower()).first()
+        user = User.query.filter_by(usernamelowercase=form.username.data
+            .lower()).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect(url_for('login'))
@@ -47,7 +49,8 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data, 
-            emaillowercase=form.email.data.lower(), usernamelowercase=form.username.data.lower())
+            emaillowercase=form.email.data.lower(), usernamelowercase=
+            form.username.data.lower())
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -59,14 +62,15 @@ def register():
 @login_required
 def member():
     page = request.args.get('page', 1, type=int)
-    activities = Activity.query.order_by(Activity.timestamp.desc()).paginate(
-        page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+    activities = Activity.query.filter_by(moderation = "0").order_by(
+        Activity.timestamp.desc()).paginate(page=page, per_page=
+        app.config['POSTS_PER_PAGE'], error_out=False)
     next_url = url_for('member', page=activities.next_num) \
         if activities.has_next else None
     prev_url = url_for('member', page=activities.prev_num) \
         if activities.has_prev else None
-    return render_template("member.html", title='Explore', activities=activities.items,
-                          next_url=next_url, prev_url=prev_url)
+    return render_template("member.html", title='Explore', activities=
+        activities.items,next_url=next_url, prev_url=prev_url)
 
 @app.route('/suggest', methods=['GET', 'POST'])
 @login_required
@@ -78,7 +82,8 @@ def suggest():
             author=current_user)
         db.session.add(activity)
         db.session.commit()
-        flash('Your suggested activity is now live!')
+        flash('Your suggested activity is pending review. It will be live \
+            soon.')
         return redirect(url_for('member'))
     return render_template("suggestion.html", title='Suggest an activity', 
         form=form)
@@ -169,8 +174,10 @@ def edit_activity(activityid):
             currentactivity.title = form.activitytitle.data
             currentactivity.location = form.activitylocation.data
             currentactivity.body = form.activitybody.data
+            currentactivity.moderation = 1
             db.session.commit()
-            flash('Your changes have been saved.')
+            flash('Your changes have been saved. Your activity is being \
+                reviewed and will be live shortly.')
             return redirect(url_for('activitypage', activityid=activityid))
         elif request.method == 'GET':
             form.activitytitle.data = currentactivity.title
@@ -179,8 +186,8 @@ def edit_activity(activityid):
     elif current_user != currentactivity.author:
         flash("You can't edit this activity as you did not create it.")
         return redirect(url_for('user', username=current_user.username))
-    return render_template('edit_activity.html', title='Edit Activity', user=user,
-        form=form)
+    return render_template('edit_activity.html', title='Edit Activity', 
+        user=user, form=form)
 
 @app.route('/delete_activity/<activityid>', methods=['GET', 'POST'])
 @login_required
@@ -189,7 +196,8 @@ def delete_activity(activityid):
     if current_user == currentactivity.author or current_user.admin == 1:
         db.session.delete(currentactivity)
         # Delete any entries that are bookmarked by other users
-        bookmark_to_delete = Bookmark.query.filter_by(activity_id=activityid).all()
+        bookmark_to_delete = Bookmark.query.filter_by(
+            activity_id=activityid).all()
         for b in bookmark_to_delete:
             db.session.delete(b)
         db.session.commit()
@@ -213,14 +221,15 @@ def bookmark(activityid):
         db.session.add(addbookmark)
         db.session.commit()
         flash('This activity is now saved in your profile.')
-    return redirect(url_for('activitypage', activityid = activityid, bookmark=bookmark))
+    return redirect(url_for('activitypage', activityid = activityid, 
+        bookmark=bookmark))
 
 @app.route('/removebookmark/<activityid>', methods=['GET', 'POST'])
 @login_required
 def removebookmark(activityid):
     form = EmptyForm()
-    bookmark_to_remove = Bookmark.query.filter_by(user_id=current_user.id).filter_by(
-        activity_id=activityid).first()
+    bookmark_to_remove = Bookmark.query.filter_by(user_id=
+        current_user.id).filter_by(activity_id=activityid).first()
     if bookmark_to_remove:
         b = Bookmark.query.filter_by(user_id=current_user.id).filter_by(
             activity_id=activityid).first()
@@ -228,7 +237,8 @@ def removebookmark(activityid):
         db.session.commit()
         flash('This activity is now removed from your list.')
     else: 
-        flash("This activity is not on your 'save for later' list and can't be removed.")
+        flash("This activity is not on your 'save for later' list and \
+            can't be removed.")
     return redirect(url_for('activitypage', activityid = activityid, 
         bookmark_to_remove=bookmark_to_remove))
 
@@ -238,13 +248,17 @@ def posted(username):
     user = User.query.filter_by(username=username).first_or_404()
     if current_user == user:
         page = request.args.get('page', 1, type=int)
-        activities = Activity.query.filter_by(author=user).order_by(Activity.timestamp.desc()).paginate(
+        activities = Activity.query.filter_by(author=user).order_by(
+            Activity.timestamp.desc()).paginate(
             page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-        next_url = url_for('posted', username=current_user.username, page=activities.next_num) \
+        next_url = url_for('posted', username=current_user.username, 
+            page=activities.next_num) \
             if activities.has_next else None
-        prev_url = url_for('posted', username=current_user.username, page=activities.prev_num) \
+        prev_url = url_for('posted', username=current_user.username, 
+            page=activities.prev_num) \
             if activities.has_prev else None        
-        return render_template('posted_activities.html', user=user, activities=activities.items,
+        return render_template('posted_activities.html', user=user, 
+            activities=activities.items,
             next_url=next_url, prev_url=prev_url)
     elif current_user != user:
         flash("You can't access this page.")
@@ -259,18 +273,23 @@ def saved(username):
         # this is cool, merging the two tables to find the relevant bookmarked 
         # activities.
         activities = Activity.query.join(Bookmark, (Bookmark.activity_id == 
-            Activity.id)).filter(Bookmark.user_id == user.id).order_by(Activity.timestamp.desc()).paginate(
+            Activity.id)).filter(Bookmark.user_id == user.id).filter(
+        Activity.moderation == 0).order_by(Activity.timestamp.desc()).paginate(
             page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-        next_url = url_for('saved', username=current_user.username, page=activities.next_num) \
+        next_url = url_for('saved', username=current_user.username, 
+            page=activities.next_num) \
             if activities.has_next else None
-        prev_url = url_for('saved', username=current_user.username, page=activities.prev_num) \
+        prev_url = url_for('saved', username=current_user.username, 
+            page=activities.prev_num) \
             if activities.has_prev else None        
-        return render_template('saved_activities.html', user=user, activities=activities.items,
+        return render_template('saved_activities.html', user=user, 
+            activities=activities.items,
             next_url=next_url, prev_url=prev_url)
     elif current_user != user:
         flash("You can't access this page.")
         return redirect(url_for('username', username=current_user.username))
-    return render_template('saved_activities.html', user=user, activities=activities)
+    return render_template('saved_activities.html', user=user, 
+        activities=activities)
 
 @app.route('/admin/users', methods=['GET', 'POST'])
 @login_required
@@ -280,14 +299,16 @@ def adminusermanagement():
     else: 
         flash('This is a restricted area.')
         return redirect(url_for('index'))
-    return render_template("user_management.html", title='User management', users=users)
+    return render_template("user_management.html", title='User management', 
+        users=users)
 
 @app.route('/edit_profile_admin/<username>', methods=['GET', 'POST'])
 @login_required
 def edit_profile_admin(username):
     if current_user.admin == 1:
         user = User.query.filter_by(username=username).first()
-        form = EditProfileAdminForm(user_username=user.username, user_email=user.email)
+        form = EditProfileAdminForm(user_username=user.username, 
+            user_email=user.email)
         if form.validate_on_submit():
             user.username = form.username.data
             user.email = form.email.data
@@ -299,7 +320,8 @@ def edit_profile_admin(username):
             form.username.data = user.username
             form.email.data = user.email
             form.about_me.data = user.about_me
-        return render_template('edit_profile_admin.html', title='Edit Profile', username=username, form=form)
+        return render_template('edit_profile_admin.html', title='Edit Profile', 
+            username=username, form=form)
     else:
         flash('This is a restricted area.')
         return redirect(url_for('index'))
@@ -312,13 +334,15 @@ def makeadmin(username):
         user = User.query.filter_by(username=username).first()
         form = EmptyForm()
         if username == current_user.username:
-            flash("You can't remove admin rights for your own user. What if you were the last admin?")
+            flash("You can't remove admin rights for your own user. What if you\
+             were the last admin?")
             return redirect(url_for('adminusermanagement'))
         else:
             if user.admin == 1:
                 user.admin = 0
                 db.session.commit()
-                flash('Your changes have been saved: the user is no longer an admin.')
+                flash('Your changes have been saved: the user is no longer an \
+                    admin.')
                 return redirect(url_for('adminusermanagement'))
             else:
                 user.admin = 1
@@ -330,14 +354,6 @@ def makeadmin(username):
         flash('This is a restricted area.')
         return redirect(url_for('index'))
 
-    # this is delicate. 
-    # We need to delete:
-    # - users
-    # - activities related to user 
-    # - bookmarks the user has made 
-    # - bookmarks made by other users on activities about to be deleted
-    # we need to check that each of these exist otherwise the site crashes. 
-    
 @app.route('/delete/<username>', methods=['GET', 'POST'])
 @login_required
 def deleteuser(username):
@@ -379,22 +395,39 @@ def deleteuser(username):
         return redirect(url_for('index'))
     return redirect(url_for('adminusermanagement'))
 
-@app.route('/admin/activities')
+@app.route('/admin/moderation', methods=['GET', 'POST'])
 @login_required
-def edit_activities_admin():
-    page = request.args.get('page', 1, type=int)
-    activities = Activity.query.order_by(Activity.timestamp.desc()).paginate(
-        page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-    next_url = url_for('member', page=activities.next_num) \
-        if activities.has_next else None
-    prev_url = url_for('member', page=activities.prev_num) \
-        if activities.has_prev else None
-    return render_template("activity_management.html", title='Explore', activities=activities.items,
-                          next_url=next_url, prev_url=prev_url)
+def adminmorderation():
+    if current_user.admin == 1:
+        activities = Activity.query.order_by(
+            Activity.moderation.desc()).order_by(Activity.timestamp.desc())
+    else: 
+        flash('This is a restricted area.')
+        return redirect(url_for('index'))
+    return render_template("moderation.html", title='Activity moderation', 
+        activities=activities)
 
-
-
-
+@app.route('/admin/<activityid>', methods=['GET', 'POST'])
+@login_required
+def moderateactivity(activityid):
+    if current_user.admin == 1:
+        activity = Activity.query.filter_by(id=activityid).first()
+        form = EmptyForm()
+        if activity.moderation == 1:
+            activity.moderation = 0
+            db.session.commit()
+            flash('Your changes have been saved: the activity is now live.')
+            return redirect(url_for('adminmorderation'))
+        else:
+            activity.moderation = 1
+            db.session.commit()
+            flash('Your changes have been saved: the activity is marked for \
+                moderation.')
+            return redirect(url_for('adminmorderation'))
+        return redirect(url_for('adminmorderation'))
+    else: 
+        flash('This is a restricted area.')
+        return redirect(url_for('index'))
 
 
 # Template for access to admin sections

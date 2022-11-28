@@ -46,8 +46,7 @@
                         {% if current_user.admin == 1 %}
                         <li role="separator" class="divider"></li>
                         <li><a href="{{ url_for('adminusermanagement') }}">User management</a></li>
-                        <li><a href="{{ url_for('edit_activities_admin') }}">Activity management</a></li>
-                        <li><a href="#">Activity moderation</a></li>
+                        <li><a href="{{ url_for('adminmorderation')}}">Activity management</a></li>
                         {% endif %}
                       </ul>
                     </li>
