@@ -3,11 +3,7 @@
 {% block app_content %}
     <h1>Things to do on a rainy day</h1>
     <p>Here are some suggestions of what you can do on a rainy day.</p><br>
-    <div class="alert alert-info suggestion-alert" role="alert">
-        <p>&#9432; You can suggest your own ideas by clicking <a class="alert-link" href="{{ url_for('suggest') }}">here</a>.</p>
-    </div> 
     <div class="spacer"> </div>
-
     <div class="indexactivities">
     {% for activity in activities %}
             {% include '_activity.html' %}

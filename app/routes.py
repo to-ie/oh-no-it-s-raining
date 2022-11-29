@@ -58,9 +58,10 @@ def register():
         return redirect(url_for('member'))
     return render_template('register.html', title='Register', form=form)
 
-@app.route('/member')
+@app.route('/member', methods=['GET', 'POST'])
 @login_required
 def member():
+    #show activities
     page = request.args.get('page', 1, type=int)
     activities = Activity.query.filter_by(moderation = "0").order_by(
         Activity.timestamp.desc()).paginate(page=page, per_page=
@@ -70,7 +71,7 @@ def member():
     prev_url = url_for('member', page=activities.prev_num) \
         if activities.has_prev else None
     return render_template("member.html", title='Explore', activities=
-        activities.items,next_url=next_url, prev_url=prev_url)
+        activities.items, next_url=next_url, prev_url=prev_url)
 
 @app.route('/suggest', methods=['GET', 'POST'])
 @login_required
@@ -428,14 +429,3 @@ def moderateactivity(activityid):
     else: 
         flash('This is a restricted area.')
         return redirect(url_for('index'))
-
-
-# Template for access to admin sections
-# @app.route('/admin/users', methods=['GET', 'POST'])
-# @login_required
-# def adminusermanagement():
-#     if current_user.admin == 1:
-#     else: 
-#         flash('This is a restricted area.')
-#         return redirect(url_for('index'))
-#     return render_template('user_management.html')
