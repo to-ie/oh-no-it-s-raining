@@ -102,7 +102,7 @@ toie -at- duck -dot- com
 - [x] Form filling for activity does not take into account formatting  
 - [x] Activity page: description of the activity, along with all the relevant info (map, pricing, contact details, expiration)
 - [x] Style forms 
-- [ ] Admin user 
+- [x] Admin user 
     - [x] for user management
         - [x] see all profiles
         - [x] edit all users profiles
@@ -111,9 +111,10 @@ toie -at- duck -dot- com
     - [x] For post management
         - [x] edit any activity 
         - [x] delete any activity 
-    - [ ] moderation of posts before they go live
+    - [x] moderation of posts before they go live
 - [ ] Filters: to filter through the ideas, based on the location
-- [ ] [optional] Voting on activity (thumbs up and down)
+- [ ] Refactoring of the structure
+- [ ] Make live
 - [ ] Check email works 
 
 # Activate the environment
