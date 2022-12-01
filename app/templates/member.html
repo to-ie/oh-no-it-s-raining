@@ -1,13 +1,26 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h1>Things to do on a rainy day</h1>
+    <!-- <h1>Things to do on a rainy day</h1> -->
+    <h1>Things to do on a rainy day <small>{{ location }}</small></h1>
     <p>Here are some suggestions of what you can do on a rainy day.</p><br>
-    <div class="spacer"> </div>
+    <div class="filters">
+        <form action="" method="post" class="locationfilter">
+            {{ form.hidden_tag() }}
+                <div>{{ form.activitylocation(class_='form-control') }}</div>
+                <div>{{ form.submit(class_='btn btn-primary') }}</div>
+                {% for error in form.activitylocation.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+        </form>
+        <button type="button" onclick="window.location.href='{{ url_for('member') }}';" class="btn">Reset</button>
+    </div>
+
     <div class="indexactivities">
     {% for activity in activities %}
             {% include '_activity.html' %}
     {% endfor %}
+
     </div>
     <nav aria-label="...">
         <ul class="pager">

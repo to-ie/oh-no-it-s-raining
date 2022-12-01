@@ -100,3 +100,15 @@ class EditActivityForm(FlaskForm):
     
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
+
+class Filter(FlaskForm):
+    activitylocation = SelectField(u'Location', choices = [],
+        validators = [DataRequired()])
+    submit = SubmitField('Filter')
+
+    def __init__(self):
+        super(Filter, self).__init__()
+        # self.activitylocation.choices = Area.query.filter_by(city='Dublin').all()
+        self.activitylocation.choices = Area.query.all()
+
+    

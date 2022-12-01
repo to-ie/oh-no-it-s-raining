@@ -7,7 +7,7 @@ from app.models import User
 from datetime import datetime
 from app.forms import ActivityForm, EmptyForm, EditProfileAdminForm
 from app.models import Activity, Area, Bookmark
-from app.forms import ResetPasswordRequestForm
+from app.forms import ResetPasswordRequestForm, Filter
 from app.email import send_password_reset_email
 from app.forms import ResetPasswordForm
 
@@ -61,6 +61,17 @@ def register():
 @app.route('/member', methods=['GET', 'POST'])
 @login_required
 def member():
+    form = Filter()
+    # filters
+    if form.validate_on_submit():
+        location=form.activitylocation.data
+        activities = Activity.query.filter_by(moderation = "0").filter_by(
+            location=location).order_by(Activity.timestamp.desc())   
+        
+        # return redirect('filter', activities=activities)
+        return render_template('member.html', activities=activities, 
+            form = form,location=location)
+
     #show activities
     page = request.args.get('page', 1, type=int)
     activities = Activity.query.filter_by(moderation = "0").order_by(
@@ -70,8 +81,34 @@ def member():
         if activities.has_next else None
     prev_url = url_for('member', page=activities.prev_num) \
         if activities.has_prev else None
+
+
     return render_template("member.html", title='Explore', activities=
-        activities.items, next_url=next_url, prev_url=prev_url)
+        activities.items, next_url=next_url, prev_url=prev_url, form=form)
+
+
+# @app.route('/filter/', methods=['GET'])
+# @login_required
+# def filter():
+#     #show activities
+#     # location = activity.location
+#     activities = Activity.query.filter_by(moderation = "0").filter_by(
+#         location=location).order_by(Activity.timestamp.desc())    
+#     return render_template('filter.html', activities=activities)
+
+    # page = request.args.get('page', 1, type=int)
+    # activities = Activity.query.filter_by(moderation = "0").filter_by(
+    #     location=location).order_by(Activity.timestamp.desc()).paginate(
+    #     page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+    # next_url = url_for('member', page=activities.next_num) \
+    #     if activities.has_next else None
+    # prev_url = url_for('member', page=activities.prev_num) \
+    #     if activities.has_prev else None
+    # return render_template("filter.html", title='Explore', activities=
+    #     activities.items, next_url=next_url, prev_url=prev_url)
+
+
+
 
 @app.route('/suggest', methods=['GET', 'POST'])
 @login_required
