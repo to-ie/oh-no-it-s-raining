@@ -110,39 +110,13 @@ To run this project, you will need to add the following environment variables to
 >>> db.session.commit()
 ```
 
-# flask shell
+## flask shell
 flask shell
 
-# Contact 
-toie -at- duck -dot- com
-
-
-# Roadmap
-- [x] anonymize config for GitHub
-- [x] Weather forecast: simple 7 day forecast
-- [x] Location should be a drop down 
-- [x] Redo location by using database table
-- [x] Setup bookmarking system (save for later) // save for later working 
-- [x] Form filling for activity does not take into account formatting  
-- [x] Activity page: description of the activity, along with all the relevant info (map, pricing, contact details, expiration)
-- [x] Style forms 
-- [x] Admin user 
-    - [x] for user management
-        - [x] see all profiles
-        - [x] edit all users profiles
-        - [x] make user admin
-        - [x] delete user and attached posts (and bookmarked items by said user)
-    - [x] For post management
-        - [x] edit any activity 
-        - [x] delete any activity 
-    - [x] moderation of posts before they go live
-- [x] Filters: to filter through the ideas, based on the location
-- [ ] Make live
-- [ ] Check email works 
-
-# Activate the environment
+## Activate the environment
 - On Windows: venv\Scripts\activate
 - On Linux: source venv/bin/activate
 
-
-
+# Roadmap
+- [ ] Make live
+- [ ] Check email works 
