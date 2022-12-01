@@ -27,9 +27,6 @@ The aim of the project is for me to test my new-learnt Flask skills.
     - User management: list users, edit users, delete users, make user admin
     - activity management: list, edit, delete, moderate / publish all activities
 
-
-
-
 # Screenshots
 ![index page](app/static/index.jpg)
 
@@ -42,6 +39,11 @@ The aim of the project is for me to test my new-learnt Flask skills.
 Install requirements with 
 ```
 pip install -r requirements.txt
+```
+
+# Run locally:
+```
+flask run 
 ```
 
 # Environment Variables
@@ -110,9 +112,6 @@ To run this project, you will need to add the following environment variables to
 
 # flask shell
 flask shell
-
-# To run the app:
-flask run 
 
 # Contact 
 toie -at- duck -dot- com
