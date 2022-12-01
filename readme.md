@@ -1,9 +1,34 @@
 # About 
 This is a project triggered from the completion of the Flask Mega Tutorial by Miguel Grinberg. 
 
-The project is simple: a web-app that users can use to get inspiration on what to do on a rainy day, in Dublin AND suggest activities. 
+The project is simple: a web-app that users can use to get inspiration on what to do on a rainy day, in Dublin. Users can also suggest activities. 
 
 The aim of the project is for me to test my new-learnt Flask skills. 
+
+# Features
+- Authentication
+    - User registration 
+    - User password reset 
+    - User login
+    - User logout
+- Public
+    - 7-day weather forecast
+    - Display of the 5-latest activities posted
+- Members
+    - Lists of activities
+    - Filter through activities, by location
+    - Users can suggest activities
+    - User can edit and delete activities they have posted
+    - Users can edit their profile
+    - users can save and remove activities for later
+    - Users can see their 'save for later list'
+    - Users can see the activities they have posted
+- Administration
+    - User management: list users, edit users, delete users, make user admin
+    - activity management: list, edit, delete, moderate / publish all activities
+
+
+
 
 # Screenshots
 ![index page](app/static/index.jpg)
@@ -112,8 +137,7 @@ toie -at- duck -dot- com
         - [x] edit any activity 
         - [x] delete any activity 
     - [x] moderation of posts before they go live
-- [ ] Filters: to filter through the ideas, based on the location
-- [ ] Refactoring of the structure
+- [x] Filters: to filter through the ideas, based on the location
 - [ ] Make live
 - [ ] Check email works 
 

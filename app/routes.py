@@ -3,13 +3,12 @@ from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, ActivityForm
+from app.forms import ActivityForm, EmptyForm, EditProfileAdminForm
+from app.forms import ResetPasswordRequestForm, Filter, ResetPasswordForm
+from app.models import Activity, Area, Bookmark
 from app.models import User
 from datetime import datetime
-from app.forms import ActivityForm, EmptyForm, EditProfileAdminForm
-from app.models import Activity, Area, Bookmark
-from app.forms import ResetPasswordRequestForm, Filter
 from app.email import send_password_reset_email
-from app.forms import ResetPasswordForm
 
 @app.route('/')
 @app.route('/index')
