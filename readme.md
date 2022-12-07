@@ -5,6 +5,8 @@ The project is simple: a web-app that users can use to get inspiration on what t
 
 The aim of the project is for me to test my new-learnt Flask skills. 
 
+The project is live here: [toie.pythonanywhere.com/](https://toie.pythonanywhere.com/)
+
 # Features
 - Authentication
     - User registration 

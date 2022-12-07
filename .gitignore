@@ -4,3 +4,5 @@
 # ignore ALL files in ANY directory named temp
 venv/ 
 logs/
+config.py
+config_bcp.py
