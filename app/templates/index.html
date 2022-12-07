@@ -18,7 +18,6 @@
     <div class="spacer">  </div>
     <h2>FAQ</h2>
     <p class="sub">Answers to the most frequently asked questions.</p>
-    
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -30,7 +29,7 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
-            I recently went through this <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world" target="_blank">awesome tutorial</a> that outlines the basic concepts of Flask and I got excited. So, in order to put my newly-learnt skills to practice, I built this. <br>It is nothing fancy, but a good exercise.
+            I recently went through this <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world" target="_blank">awesome tutorial</a> that outlines the basic concepts of Flask and I got excited. So, in order to put my newly-learnt skills to practice, I built this. <br>It is nothing fancy, but a good exercise.<br> "Oh no it's raining" is a website that gives you ideas of activities to do on a rainy day. 
           </div>
         </div>
       </div>
@@ -38,13 +37,13 @@
         <div class="panel-heading" role="tab" id="headingTwo">
           <h4 class="panel-title">
             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Is it free?
+              Can I add my own ideas?
             </a>
           </h4>
         </div>
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="panel-body">
-            Yup, 100%. Forever.
+            Sure! You will need to create an account for that though. Once you have done that, you can head over to the <a href="{{ url_for('suggest') }}">Suggest</a> page and add your own. <br>Note: All new activities need to go through a quick review before they are live.
           </div>
         </div>
       </div>
@@ -52,30 +51,57 @@
         <div class="panel-heading" role="tab" id="headingThree">
           <h4 class="panel-title">
             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Why Dublin? Any other cities?
+              Can I save activities for later?
             </a>
           </h4>
         </div>
         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Yup. You will need to be logged in for that but, once you have done that, you can save an activity for later. <br>You will find the links to bookmark activities on each activity page, under the title.
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Why Dublin? Any other cities?
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
           <div class="panel-body">
             I had to start somewhere, so I chose Dublin. Depending on the traction, I might add other Irish cities.
           </div>
         </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
+        <div class="panel-heading" role="tab" id="headingFive">
           <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              Is it free?
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+          <div class="panel-body">
+            Yup, 100%. Forever.
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingSix">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
               I have some questions...
             </a>
           </h4>
         </div>
-        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
           <div class="panel-body">
             Sure, ping me on toie -at- duck -dot- com.
           </div>
         </div>
-      </div>
       </div>
     </div>
 
