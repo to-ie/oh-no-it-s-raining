@@ -15,5 +15,9 @@ class Config(object):
     MAIL_USERNAME = 'ohnoitsrainingdublin@gmail.com'
     MAIL_PASSWORD = 'khiaqbacyceimeth'
     # change admin email address here
+<<<<<<< HEAD
     ADMINS = ['theodre@gmail.com']
+=======
+    ADMINS = ['ohnoitsrainingdublin@gmail.com']
+>>>>>>> newbranch
     POSTS_PER_PAGE = 10

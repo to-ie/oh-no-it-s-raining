@@ -4,5 +4,11 @@
 # ignore ALL files in ANY directory named temp
 venv/ 
 logs/
+<<<<<<< HEAD
 config.py
 config_bcp.py
+=======
+
+config_bcp.py
+config.py
+>>>>>>> newbranch

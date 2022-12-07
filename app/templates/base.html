@@ -27,11 +27,8 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('member') }}">Explore</a></li>
-                    {% if current_user.is_anonymous %}
-                    {% else %}
+                    <li><a href="{{ url_for('explore') }}">Explore</a></li>
                     <li><a href="{{ url_for('suggest') }}">Suggest</a></li>
-                    {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
