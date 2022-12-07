@@ -1,3 +1,25 @@
+/* MOBILE */
+
+@media (max-width: 480px) {
+    #id7403ee3c06a84.wlr {
+       width: 100% !important;
+    }
+
+    .activitymore{
+        width: 70px;
+        height: fit-content;
+        text-align: center;
+    }
+
+    .form-control{
+        width: 100% !important;
+    }
+
+    .alert-info{
+        width: 100% !important;
+    }
+}
+
 .navbar-brand{
     margin-top: -5px !important;
 }
@@ -76,9 +98,17 @@ h2{
     display: none !important;
 }
 
-#id7403ee3c06a84.wlr {
+/*#id7403ee3c06a84.wlr {
   width: 700px !important;
 }
+*/
+@media (min-width: 481px) {
+    #id7403ee3c06a84.wlr {
+        width: 700px !important;
+    }
+
+}
+
 
 /* Activity table */
 .locationfilter{

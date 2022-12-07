@@ -5,6 +5,5 @@
 venv/ 
 logs/
 
-
 config_bcp.py
 config.py
