@@ -24,7 +24,7 @@ def login():
     if current_user.is_authenticated:
         # if the user is already authenticated, redirect the user to the 
         # members page. 
-        return redirect(url_for('member'))
+        return redirect(url_for('explore'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(usernamelowercase=form.username.data
@@ -33,7 +33,7 @@ def login():
             flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
-        return redirect(url_for('member'))
+        return redirect(url_for('explore'))
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
@@ -54,12 +54,12 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
-        return redirect(url_for('member'))
+        return redirect(url_for('explore'))
     return render_template('register.html', title='Register', form=form)
 
-@app.route('/member', methods=['GET', 'POST'])
-@login_required
-def member():
+@app.route('/explore', methods=['GET', 'POST'])
+# @login_required
+def explore():
     form = Filter()
     # filters
     if form.validate_on_submit():
@@ -68,7 +68,7 @@ def member():
             location=location).order_by(Activity.timestamp.desc())   
         
         # return redirect('filter', activities=activities)
-        return render_template('member.html', activities=activities, 
+        return render_template('explore.html', activities=activities, 
             form = form,location=location)
 
     #show activities
@@ -76,13 +76,13 @@ def member():
     activities = Activity.query.filter_by(moderation = "0").order_by(
         Activity.timestamp.desc()).paginate(page=page, per_page=
         app.config['POSTS_PER_PAGE'], error_out=False)
-    next_url = url_for('member', page=activities.next_num) \
+    next_url = url_for('explore', page=activities.next_num) \
         if activities.has_next else None
-    prev_url = url_for('member', page=activities.prev_num) \
+    prev_url = url_for('explore', page=activities.prev_num) \
         if activities.has_prev else None
 
 
-    return render_template("member.html", title='Explore', activities=
+    return render_template("explore.html", title='Explore', activities=
         activities.items, next_url=next_url, prev_url=prev_url, form=form)
 
 
@@ -121,7 +121,7 @@ def suggest():
         db.session.commit()
         flash('Your suggested activity is pending review. It will be live \
             soon.')
-        return redirect(url_for('member'))
+        return redirect(url_for('explore'))
     return render_template("suggestion.html", title='Suggest an activity', 
         form=form)
 
@@ -192,7 +192,7 @@ def edit_profile():
     return render_template('edit_profile.html', title='Edit Profile', form=form)
 
 @app.route('/activity/<activityid>')
-@login_required
+# @login_required
 def activitypage(activityid):
     activitypage = Activity.query.filter_by(id=activityid).first_or_404()
     activities = Activity.query.filter_by(id=activityid).all()
