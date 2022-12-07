@@ -118,7 +118,3 @@ flask shell
 ## Activate the environment
 - On Windows: venv\Scripts\activate
 - On Linux: source venv/bin/activate
-
-# Roadmap
-- [ ] Make live
-- [ ] Check email works 
